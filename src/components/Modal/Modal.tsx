@@ -25,13 +25,13 @@ export default class Modal extends Component<any, any> {
       <div className="Modal">
         <div>
           <button onClick={this.toggle}>Click to show</button>
-          {!isOpen ? (
-            ""
-          ) : (
+          {isOpen ? (
             <div>
               <div onClick={this.toggle}>test</div>
               <div>{children}</div>
             </div>
+          ) : (
+            <></>
           )}
 
           {/* <div onClick={this.toggle}>{isOpen ? <ModalHeader /> : <></>}</div> */}
