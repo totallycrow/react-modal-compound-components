@@ -8,6 +8,10 @@ type ModalState = {
   isOpen: boolean;
 };
 
+
+// HOC
+// RENDER PROPS
+
 // TS TYPE?
 export default class Modal extends Component<any, ModalState> {
   // TS TYPE OF CHILDREN??
@@ -20,7 +24,6 @@ export default class Modal extends Component<any, ModalState> {
     this.setState((prevState: ModalState) => ({
       isOpen: !prevState.isOpen,
     }));
-    console.log(this.state);
   };
 
   render() {
@@ -32,10 +35,8 @@ export default class Modal extends Component<any, ModalState> {
       <div className="Modal">
         <div>
           <button onClick={this.toggle}>Click to show</button>
-          {isOpen ? (
+          {isOpen && (
             <ModalItem toggle={this.toggle}>{children}</ModalItem>
-          ) : (
-            <></>
           )}
         </div>
       </div>

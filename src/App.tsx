@@ -1,7 +1,7 @@
 import React, { useState, createContext, useContext } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Modal from "./components/Modal/Modal";
+import { Modal, ModalHeader, ModalContent } from "./components/Modal/Modal"; // chakra-ui
 import ModalFooter from "./components/Modal/ModalFooter";
 
 function App() {
@@ -9,10 +9,10 @@ function App() {
     <div>
       <div className="App">
         <Modal>
-          <Modal.Header title="Test Header" />
-          <Modal.Content>
+          <ModalHeader title="Test Header" />
+          <ModalContent>
             <div>Test</div>
-          </Modal.Content>
+          </ModalContent>
           <ModalFooter callToActionLabel="Test Label" />
         </Modal>
       </div>
