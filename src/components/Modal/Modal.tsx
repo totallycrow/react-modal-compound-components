@@ -2,15 +2,22 @@ import React, { Component } from "react";
 import "./Modal.css";
 import ModalHeader from "./ModalHeader";
 import ModalContent from "./ModalContent";
+import ModalItem from "./ModalItem";
 
-export default class Modal extends Component<any, any> {
+type ModalState = {
+  isOpen: boolean;
+};
+
+// TS TYPE?
+export default class Modal extends Component<any, ModalState> {
+  // TS TYPE OF CHILDREN??
   state = { isOpen: false };
 
   static Header = ModalHeader;
   static Content = ModalContent;
 
   toggle = () => {
-    this.setState((prevState: any) => ({
+    this.setState((prevState: ModalState) => ({
       isOpen: !prevState.isOpen,
     }));
     console.log(this.state);
@@ -26,15 +33,10 @@ export default class Modal extends Component<any, any> {
         <div>
           <button onClick={this.toggle}>Click to show</button>
           {isOpen ? (
-            <div>
-              <div onClick={this.toggle}>test</div>
-              <div>{children}</div>
-            </div>
+            <ModalItem toggle={this.toggle}>{children}</ModalItem>
           ) : (
             <></>
           )}
-
-          {/* <div onClick={this.toggle}>{isOpen ? <ModalHeader /> : <></>}</div> */}
         </div>
       </div>
     );

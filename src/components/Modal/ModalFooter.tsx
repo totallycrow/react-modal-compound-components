@@ -1,20 +1,24 @@
 import React, { Component } from "react";
 
-export default class Footer extends Component<any, any> {
+type FooterProps = {
+  callToActionLabel: string;
+  toggle?: React.MouseEventHandler<HTMLButtonElement>;
+};
+
+export default class Footer extends Component<FooterProps> {
   render() {
     return (
       <div>
         <h3>footer</h3>
-        {/* @ts-ignore */}
+
         <button onClick={this.props.toggle}>close</button>
         <button
-          onClick={() => {
+          onClick={(e) => {
             alert("OK");
-            // @ts-ignore
-            this.props.toggle();
+
+            if (this.props.toggle) this.props.toggle(e);
           }}
         >
-          {/* @ts-ignore */}
           {this.props.callToActionLabel}
         </button>
       </div>
